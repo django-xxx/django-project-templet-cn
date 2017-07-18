@@ -35,3 +35,11 @@ Django Project Templet for CN
     * Url: http://a.com/we/jsapi_signature
     * Method: Get/POST/JSONP
     * Params: url - current page's url
+  * In order to use ``request.wechat``, should add middleware
+    ```
+    MIDDLEWARE = [
+        ...
+        'detect.middleware.UserAgentDetectionMiddleware',
+        ...
+    ]
+    ```

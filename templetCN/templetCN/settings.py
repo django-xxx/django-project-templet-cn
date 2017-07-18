@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_we',
     'api',
 ]
 
@@ -158,6 +159,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
 MEDIA_URL = '/media/'
 
+# DOMAIN
+DOMAIN = 'http://a.com'
+
 # Redis 设置
 REDIS = {
     'default': {
@@ -168,6 +172,27 @@ REDIS = {
         'db': 0,
     }
 }
+
+# 微信设置
+WECHAT = {
+    'JSAPI': {
+        'token': '5201314',
+        'appID': '',
+        'appsecret': '',
+        'mchID': '',
+        'apiKey': '',
+        'mch_cert': '',
+        'mch_key': '',
+        'redpack': {
+
+        }
+    },
+}
+
+# 微信授权设置
+WECHAT_BASE_REDIRECT_URI = '{}/we/base_redirect'.format(DOMAIN)
+WECHAT_USERINFO_REDIRECT_URI = '{}/we/userinfo_redirect'.format(DOMAIN)
+WECHAT_OAUTH2_RETRY_REDIRECT_URI = '{}/we/oauth2?redirect_url={{}}'.format(DOMAIN)
 
 # 邮件设置
 # https://docs.djangoproject.com/en/1.11/howto/error-reporting/#email-reports

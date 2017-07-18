@@ -28,3 +28,10 @@ Django Project Templet for CN
   
   # r.keys()
   ```
+* WeChat OAuth2 & JSAPI
+  * OAuth2
+    * Url: http://a.com/we/oauth2?redirect_url=redirect_url
+  * JSAPI
+    * Url: http://a.com/we/jsapi_signature
+    * Method: Get/POST/JSONP
+    * Params: url - current page's url

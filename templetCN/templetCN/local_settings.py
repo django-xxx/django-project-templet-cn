@@ -30,6 +30,9 @@ TEMPLATES = [
     },
 ]
 
+# DOMAIN
+DOMAIN = 'http://a.com'
+
 # 邮件设置
 # 只有当 DEBUG = False 的时候，才会邮件发送报错信息
 SERVER_EMAIL = 'error.notify@exmail.com'

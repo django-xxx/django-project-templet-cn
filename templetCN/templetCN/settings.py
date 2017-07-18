@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -167,6 +168,43 @@ REDIS = {
         'db': 0,
     }
 }
+
+# 邮件设置
+# https://docs.djangoproject.com/en/1.11/howto/error-reporting/#email-reports
+# When DEBUG is False, Django will email the users listed in the ADMINS setting
+# whenever your code raises an unhandled exception and results in an internal server error (HTTP status code 500).
+# 只有当 DEBUG = False 的时候，才会邮件发送报错信息
+# Email address that error messages come from.
+SERVER_EMAIL = 'error.notify@exmail.com'
+# The email backend to use. For possible shortcuts see django.core.mail.
+# The default is to use the SMTP backend.
+# Third-party backends can be specified by providing a Python path
+# to a module that defines an EmailBackend class.
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# Host for sending email.
+EMAIL_HOST = 'smtp.exmail.qq.com'
+# Port for sending email.
+EMAIL_PORT = 25
+# Optional SMTP authentication information for EMAIL_HOST.
+EMAIL_HOST_USER = 'error.notify@exmail.com'
+EMAIL_HOST_PASSWORD = '<^_^>pwd<^_^>'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+EMAIL_SSL_CERTFILE = None
+EMAIL_SSL_KEYFILE = None
+EMAIL_TIMEOUT = None
+# Default email address to use for various automated correspondence from
+# the site managers.
+DEFAULT_FROM_EMAIL = 'error.notify <error.notify@exmail.com>'
+# People who get code error notifications.
+# In the format [('Full Name', 'email@example.com'), ('Full Name', 'anotheremail@example.com')]
+ADMINS = [('Zhang San', 'san.zhang@exmail.com'), ('Li Si', 'si.li@exmail.com')]
+# Not-necessarily-technical managers of the site. They get broken link
+# notifications and other various emails.
+MANAGERS = ADMINS
+# Subject-line prefix for email messages send with django.core.mail.mail_admins
+# or ...mail_managers.  Make sure to include the trailing space.
+EMAIL_SUBJECT_PREFIX = u'[Templet] '
 
 try:
     from local_settings import *

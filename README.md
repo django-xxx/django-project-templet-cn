@@ -9,6 +9,10 @@ Django Project Templet for CN
   class OrderInfo(CreateUpdateMixin):
       xxx
   ```
+* Email Server Error
+  * When DEBUG is False, Django will email the users listed in the ADMINS setting
+  * whenever your code raises an unhandled exception and results in an internal server error (HTTP status code 500)
+  * Uncomment url pattern in ``/api/urls.py`` to test.
 * JSON Response
   ```python
   from utils.error.errno_utils import ProfileStatusCode

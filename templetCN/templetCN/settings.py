@@ -156,3 +156,25 @@ STATICFILES_FINDERS = (
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
 MEDIA_URL = '/media/'
+
+# Redis 设置
+REDIS = {
+    'default': {
+        'HOST': '127.0.0.1',
+        'PORT': 6379,
+        'USER': '',
+        'PASSWORD': '',
+        'db': 0,
+    }
+}
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
+try:
+    from func_settings import redis_connect
+    REDIS_CACHE = redis_connect(REDIS.get('default', {}))
+except ImportError:
+    REDIS_CACHE = None

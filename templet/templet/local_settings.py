@@ -5,7 +5,7 @@ import os
 
 # DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJ_DIR = os.path.abspath(os.path.dirname(os.path.abspath(__file__)))

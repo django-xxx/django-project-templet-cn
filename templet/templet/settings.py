@@ -192,9 +192,9 @@ WECHAT = {
 }
 
 # 微信授权设置
-WECHAT_BASE_REDIRECT_URI = '{}/we/base_redirect'.format(DOMAIN)
-WECHAT_USERINFO_REDIRECT_URI = '{}/we/userinfo_redirect'.format(DOMAIN)
-WECHAT_OAUTH2_RETRY_REDIRECT_URI = '{}/we/oauth2?redirect_url={{}}'.format(DOMAIN)
+WECHAT_BASE_REDIRECT_URI = '{0}/we/base_redirect'.format(DOMAIN)
+WECHAT_USERINFO_REDIRECT_URI = '{0}/we/userinfo_redirect'.format(DOMAIN)
+WECHAT_OAUTH2_RETRY_REDIRECT_URI = '{0}/we/oauth2?scope={{0}}redirect_url={{1}}'.format(DOMAIN)
 
 # 邮件设置
 # https://docs.djangoproject.com/en/1.11/howto/error-reporting/#email-reports

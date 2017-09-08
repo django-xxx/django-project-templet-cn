@@ -4,14 +4,19 @@ from StatusCode import BaseStatusCode, StatusCodeField
 
 
 class ProfileStatusCode(BaseStatusCode):
-    """ 用户相关错误码 4001xx """
+    """ 4001xx 用户相关错误码 """
     PROFILE_NOT_FOUND = StatusCodeField(400101, 'Profile Not Found', description=u'用户不存在')
-    # 手机号
-    PHONE_ALREADY_EXISTS = StatusCodeField(400105, 'Phone Already Exists', description=u'手机号已经存在')
+
+
+class PhoneStatusCode(BaseStatusCode):
+    """ 4002xx 手机相关错误码 """
+    INVALID_PHONE = StatusCodeField(400200, 'Invalid Phone', description=u'非法手机号')
+    PHONE_NOT_FOUND = StatusCodeField(400201, 'Phone Not Found', description=u'手机号不存在')
+    PHONE_ALREADY_EXISTS = StatusCodeField(400202, 'Phone Already Exists', description=u'手机号已存在')
 
 
 class OrderStatusCode(BaseStatusCode):
-    """ 订单／支付相关错误码 4040xx """
+    """ 4040xx 订单／支付相关错误码 """
     UNIFIED_ORDER_FAIL = StatusCodeField(404000, 'Unified Order Fail', description=u'统一下单失败')
     ORDER_NOT_FOUND = StatusCodeField(404001, 'Order Not Found', description=u'订单不存在')
     # 订单支付状态
@@ -24,14 +29,44 @@ class OrderStatusCode(BaseStatusCode):
 
 
 class PayStatusCode(BaseStatusCode):
-    """ 支付相关错误码 4041xx """
+    """ 4041xx 支付相关错误码 """
 
 
 class WithdrawStatusCode(BaseStatusCode):
-    """ 提现相关错误码 4042xx """
+    """ 4042xx 提现相关错误码 """
     BALANCE_INSUFFICIENT = StatusCodeField(404200, 'Balance Insufficient', description=u'提现金额不足')
 
 
 class TokenStatusCode(BaseStatusCode):
-    """ 票据相关错误码 4090xx """
-    TOKEN_NOT_FOUND = StatusCodeField(409901, 'Token Not Found', description=u'票据不存在')
+    """ 4090xx 票据相关错误码 """
+    TOKEN_NOT_FOUND = StatusCodeField(409001, 'Token Not Found', description=u'票据不存在')
+
+
+class SignatureStatusCode(BaseStatusCode):
+    """ 4091xx 签名校验错误 """
+    SIGNATURE_ERROR = StatusCodeField(409101, 'Signature Error', description=u'签名错误')
+
+
+class GVCodeStatusCode(BaseStatusCode):
+    """ 4095xx 图形验证码相关错误码 """
+    GRAPHIC_VCODE_ERROR = StatusCodeField(409101, 'Graphic VCode Error', description=u'图形验证码错误')
+
+
+class SVCodeStatusCode(BaseStatusCode):
+    """ 4092xx 短信验证码相关错误码 """
+    SMS_QUOTA_LIMIT = StatusCodeField(409200, 'SMS Quota Limit', description=u'短信次数超限')
+    SMS_VCODE_ERROR = StatusCodeField(409201, 'SMS VCode Error', description=u'验证码错误，请稍后重试')
+    SMS_VCODE_HAS_SEND = StatusCodeField(409202, 'SMS VCode Has Send', description=u'验证码已发送，请勿重复获取')
+
+
+class InsufficientStatusCode(BaseStatusCode):
+    """ 4095xx 不足相关错误码 """
+    BALANCE_INSUFFICIENT = StatusCodeField(409501, 'Balance Insufficient', description=u'余额不足')
+    INTEGRAL_INSUFFICIENT = StatusCodeField(409502, 'Integral Insufficient', description=u'积分不足')
+
+
+class PermissionStatusCode(BaseStatusCode):
+    """ 4099xx 权限相关错误码 """
+    PERMISSION_DENIED = StatusCodeField(409900, 'Permission Denied', description=u'权限不足')
+    UPLOAD_PERMISSION_DENIED = StatusCodeField(409910, 'Upload Permission Denied', description=u'上传权限不足')
+    UPDATE_PERMISSION_DENIED = StatusCodeField(409930, 'Update Permission Denied', description=u'更新权限不足')

@@ -161,6 +161,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
 MEDIA_URL = '/media/'
 
+# File 设置
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # InMemoryUploadedFile 文件最大值，设置为 5 MB
+
+FILE_UPLOAD_PERMISSIONS = 0o644  # TemporaryUploadedFile 文件权限设置
+
 # DOMAIN
 DOMAIN = 'http://a.com'
 
@@ -190,6 +195,21 @@ WECHAT = {
         }
     },
 }
+
+# 微信唯一标识
+# Choices: 'unionid' or 'openid'
+#
+# models.py
+#   'unique_identifier': self.unionid if settings.WECHAT_UNIQUE_IDENTIFICATION == 'unionid' else self.openid,
+# views.py
+#   unique_identifier = request.POST.get(settings.WECHAT_UNIQUE_IDENTIFICATION, '')
+#   profile = Profile.objects.get(**{settings.WECHAT_UNIQUE_IDENTIFICATION: unique_identifier})
+WECHAT_UNIQUE_IDENTIFICATION = 'unionid'
+
+# Token 错误重授权设置
+TOKEN_CHECK_KEY = ''
+WECHAT_OAUTH2_REDIRECT_ENTRY = ''
+WECHAT_OAUTH2_REDIRECT_URL = ''
 
 # 邮件设置
 # https://docs.djangoproject.com/en/1.11/howto/error-reporting/#email-reports
@@ -233,6 +253,12 @@ try:
 except ImportError:
     pass
 
+
+try:
+    from local_settings_dev_bak import *
+except ImportError:
+    pass
+
 try:
     from oauth_settings import *
 except ImportError:
@@ -240,9 +266,11 @@ except ImportError:
 
 # 依赖 local_settings 中的配置
 # 微信授权设置
+WECHAT_OAUTH2_REDIRECT_URI = '{0}/we/oauth2?scope={{0}}&redirect_url={{1}}'.format(DOMAIN)
 WECHAT_BASE_REDIRECT_URI = '{0}/we/base_redirect'.format(DOMAIN)
 WECHAT_USERINFO_REDIRECT_URI = '{0}/we/userinfo_redirect'.format(DOMAIN)
-WECHAT_OAUTH2_REDIRECT_URI = '{0}/we/oauth2?scope={{0}}redirect_url={{1}}'.format(DOMAIN)
+WECHAT_DIRECT_BASE_REDIRECT_URI = '{0}/we/direct_base_redirect'.format(DOMAIN)
+WECHAT_DIRECT_USERINFO_REDIRECT_URI = '{0}/we/direct_userinfo_redirect'.format(DOMAIN)
 
 try:
     from func_settings import redis_connect

@@ -5,9 +5,9 @@ django-detect==1.0.5
 django-json-render==1.0.0
 django-json-response==1.1.5
 django-uniapi==1.0.0
-django-we==1.0.10
-furl==1.0.0
+django-we==1.0.13
+furl==1.0.1
 hiredis==0.2.0
-pywe-oauth==1.0.4
+pywe-oauth==1.0.5
 redis==2.10.6
 redis-extensions==1.1.1

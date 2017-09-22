@@ -17,3 +17,10 @@ build
 # Python egg metadata, regenerated from source files by setuptools.
 /*.egg-info
 /*.egg
+
+# Django File
+local_settings.py
+local_settings_dev.py
+# Django Dir
+media/
+collect_static/

@@ -33,14 +33,23 @@ Django Project Templet for CN
   ```
 * V Token
   * Decorator check ``vtoken``
-    ```
-    from django.shortcuts import render
-    from templet.decorators import check_token
+    * views.py
+      ```python
+      from django.conf import settings
+      from django.shortcuts import render
+      from templet.decorators import check_token
 
-    @check_token
-    def render_template_func(request):
-        return render(request, 'template_file_path', {})
-    ```
+      @check_token
+      def render_template_func(request):
+          return render(request, 'template_file_path', {
+              'domain': settings.DOMAIN,
+              'params': '{0}={1}&vtoken={2}'.format(settings.TOKEN_CHECK_KEY, 'token_check_key', request.GET.get('vtoken', '')),
+          })
+      ```
+    * template.html
+      ```html
+      {{ domain }}/xxx?{{ params|safe }}
+      ```
 * WeChat OAuth2 & JSAPI
   * OAuth2
     * URL: http://a.com/we/oauth2?redirect_url=redirect_url

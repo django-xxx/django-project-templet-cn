@@ -248,11 +248,13 @@ MANAGERS = ADMINS
 # or ...mail_managers.  Make sure to include the trailing space.
 EMAIL_SUBJECT_PREFIX = u'[Templet] '
 
+# Admin Settings
+DISABLE_ACTION = False
+
 try:
     from local_settings import *
 except ImportError:
     pass
-
 
 try:
     from local_settings_dev_bak import *
@@ -277,3 +279,31 @@ try:
     REDIS_CACHE = redis_connect(REDIS.get('default', {}))
 except ImportError:
     REDIS_CACHE = None
+
+# LOGGER 设置
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'console': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

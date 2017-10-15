@@ -5,8 +5,8 @@ from functools import wraps
 from django.conf import settings
 from django.shortcuts import redirect
 from furl import furl
-from pywe_sign import check_signature
 from pywe_oauth import get_oauth_redirect_url
+from pywe_sign import check_signature
 
 from utils.redis.connect import r
 

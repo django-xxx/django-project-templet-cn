@@ -8,10 +8,12 @@ from furl import furl
 from pywe_oauth import get_oauth_redirect_url
 from pywe_sign import check_signature
 
+from utils.error.errno_utils import SignatureStatusCode
+from utils.error.response_utils import response
 from utils.redis.connect import r
 
 
-def check_token(func=None):
+def check_token(func=None, entry=None):
     def decorator(func):
         @wraps(func)
         def returned_wrapper(request, *args, **kwargs):
@@ -22,7 +24,7 @@ def check_token(func=None):
                     # 3rd OAuth
                     # return redirect(settings.WECHAT_OAUTH2_REDIRECT_URL)
                     # Current OAuth
-                    redirect_url = furl(settings.WECHAT_OAUTH2_REDIRECT_ENTRY).add({}).url
+                    redirect_url = furl(entry or settings.WECHAT_OAUTH2_REDIRECT_ENTRY).add({}).url
                     return redirect(get_oauth_redirect_url(settings.WECHAT_OAUTH2_REDIRECT_URI, 'snsapi_userinfo', redirect_url))
             return func(request, *args, **kwargs)
         return returned_wrapper
@@ -40,7 +42,7 @@ def check_sign(func=None, method='POST'):
         @wraps(func)
         def returned_wrapper(request, *args, **kwargs):
             if not settings.DEBUG and not check_signature(getattr(request, method).dict(), settings.PARAMS_SIGN_KEY):
-                return json_response(SignatureStatusCode.SIGNATURE_ERROR)
+                return response(SignatureStatusCode.SIGNATURE_ERROR)
             return func(request, *args, **kwargs)
         return returned_wrapper
 

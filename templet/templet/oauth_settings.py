@@ -13,11 +13,12 @@ def DJANGO_WE_USERINFO_FUNC(code, state, access_info=None, userinfo=None):
     """ WeChat Userinfo Redirect Callback Func """
     from django.conf import settings
     from utils.redis.connect import r
+    from utils.user.userinfo_save import userinfo_save
 
     # Save profile or something else
-    unique_identifier = userinfo.get(settings.WECHAT_UNIQUE_IDENTIFICATION, '')
+    user = userinfo_save(userinfo)
 
-    token_check_key = 'token_check_key'
+    token_check_key = getattr(user, settings.TOKEN_CHECK_KEY)
 
     return {
         settings.TOKEN_CHECK_KEY: token_check_key,

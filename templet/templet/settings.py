@@ -210,6 +210,7 @@ WECHAT_UNIQUE_IDENTIFICATION = 'unionid'
 
 # Token 错误重授权设置
 TOKEN_CHECK_KEY = ''
+# TOKEN_CHECK_KEY = 'user_id'
 WECHAT_OAUTH2_REDIRECT_ENTRY = ''
 WECHAT_OAUTH2_REDIRECT_URL = ''
 
@@ -253,13 +254,15 @@ EMAIL_SUBJECT_PREFIX = u'[Templet] '
 # Admin Settings
 DISABLE_ACTION = False
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
+# 开发调试相关配置
+if DEBUG:
+    try:
+        from local_settings_dev import *
+    except ImportError:
+        pass
 
 try:
-    from local_settings_dev_bak import *
+    from local_settings import *
 except ImportError:
     pass
 

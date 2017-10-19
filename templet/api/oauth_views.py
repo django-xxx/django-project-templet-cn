@@ -9,14 +9,15 @@ from django.shortcuts import redirect
 from furl import furl
 
 from utils.redis.connect import r
+from utils.user.userinfo_save import userinfo_save
 
 
 @transaction.atomic
 def oauth_redirect(request):
     # Save profile or something else
-    unique_identifier = request.GET.get(settings.WECHAT_UNIQUE_IDENTIFICATION, '')
+    user = userinfo_save(request.GET)
 
-    token_check_key = 'token_check_key'
+    token_check_key = getattr(user, settings.TOKEN_CHECK_KEY)
 
     query_params = {
         settings.TOKEN_CHECK_KEY: token_check_key,

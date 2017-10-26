@@ -5,6 +5,7 @@ django-admin==1.0.10
 django-detect==1.0.5
 django-json-render==1.0.0
 django-json-response==1.1.5
+django-short-url==1.0.1
 django-uniapi==1.0.0
 django-we==1.0.14
 furl==1.0.1

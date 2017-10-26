@@ -24,6 +24,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include('api.urls', namespace='api')),
+    # url(r'^s/', include('django_short_url.urls', namespace='django_short_url')),
     url(r'^uniapi/', include('django_uniapi.urls', namespace='uniapi')),
     url(r'^we/', include('django_we.urls', namespace='wechat')),
 ]

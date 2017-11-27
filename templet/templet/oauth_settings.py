@@ -5,6 +5,14 @@ def DJANGO_WE_CFG_FUNC(request, state=None):
     """ WeChat CFG Callback Func """
 
 
+def DJANGO_WE_QUOTE_STATE_FUNC(request, state):
+    """ WeChat Quote Callback Func """
+
+
+def DJANGO_WE_UNQUOTE_STATE_FUNC(request, state):
+    """ WeChat UnQuote Callback Func """
+
+
 def DJANGO_WE_BASE_FUNC(code, state, access_info=None):
     """ WeChat Base Redirect Callback Func """
 

@@ -6,4 +6,4 @@
 #  -- E128 continuation line under-indented for visual indent
 #  -- E501 line too long
 
-pycodestyle --exclude=migrations --ignore=E128,E501 .
+pycodestyle --exclude=build,migrations,.tox --ignore=E128,E501 .

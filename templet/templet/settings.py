@@ -166,7 +166,6 @@ MEDIA_URL = '/media/'
 
 # File 设置
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # InMemoryUploadedFile 文件最大值，设置为 5 MB
-
 FILE_UPLOAD_PERMISSIONS = 0o644  # TemporaryUploadedFile 文件权限设置
 
 # DOMAIN
@@ -274,7 +273,8 @@ except ImportError:
 
 # 依赖 local_settings 中的配置
 # 微信授权设置
-WECHAT_OAUTH2_REDIRECT_URI = '{0}/we/oauth2?scope={{0}}&redirect_url={{1}}'.format(DOMAIN)
+# WECHAT_OAUTH2_REDIRECT_URI = '{0}/we/oauth2?scope={{0}}&redirect_url={{1}}'.format(DOMAIN)
+WECHAT_OAUTH2_REDIRECT_URI = '{0}/we/oauth2?scope={{0}}&r={{1}}'.format(DOMAIN)  # Shorten URL
 WECHAT_BASE_REDIRECT_URI = '{0}/we/base_redirect'.format(DOMAIN)
 WECHAT_USERINFO_REDIRECT_URI = '{0}/we/userinfo_redirect'.format(DOMAIN)
 WECHAT_DIRECT_BASE_REDIRECT_URI = '{0}/we/direct_base_redirect'.format(DOMAIN)

@@ -274,7 +274,11 @@ except ImportError:
 # 依赖 local_settings 中的配置
 # 微信授权设置
 # WECHAT_OAUTH2_REDIRECT_URI = '{0}/we/oauth2?scope={{0}}&redirect_url={{1}}'.format(DOMAIN)
-WECHAT_OAUTH2_REDIRECT_URI = '{0}/we/oauth2?scope={{0}}&r={{1}}'.format(DOMAIN)  # Shorten URL
+# Shorten URL
+# ``o`` is short for oauth2
+# ``r`` is short for redirect_url
+WECHAT_OAUTH2_REDIRECT_URI = '{0}/we/o?scope={{0}}&r={{1}}'.format(DOMAIN)
+WECHAT_OAUTH2_USERINFO_REDIRECT_URI = '{0}/we/o?r={{0}}'.format(DOMAIN)  # Scope default snsapi_userinfo
 WECHAT_BASE_REDIRECT_URI = '{0}/we/base_redirect'.format(DOMAIN)
 WECHAT_USERINFO_REDIRECT_URI = '{0}/we/userinfo_redirect'.format(DOMAIN)
 WECHAT_DIRECT_BASE_REDIRECT_URI = '{0}/we/direct_base_redirect'.format(DOMAIN)

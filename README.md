@@ -4,9 +4,16 @@ Django Project Templet for CN
 ## Usage
 * Basemodels
   ```python
-  from templet.basemodels import CreateUpdateMixin
+  from templet.basemodels import BaseModelMixin
 
-  class OrderInfo(CreateUpdateMixin):
+  class OrderInfo(BaseModelMixin):
+      xxx
+  ```
+  or
+  ```python
+  from models_ext import BaseModelMixin
+
+  class OrderInfo(BaseModelMixin):
       xxx
   ```
 * Command

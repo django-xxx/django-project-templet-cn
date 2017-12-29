@@ -18,6 +18,9 @@ build
 /*.egg-info
 /*.egg
 
+# Locked file for Excel etc
+.~lock.*
+
 # Django File
 local_settings.py
 local_settings_dev.py

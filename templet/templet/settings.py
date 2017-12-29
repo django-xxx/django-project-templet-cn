@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # 'django_short_url',
     'django_uniapi',
     'django_we',
+    'djadmin',
     'api',
 ]
 

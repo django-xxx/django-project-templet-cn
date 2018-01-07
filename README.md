@@ -4,13 +4,7 @@ Django Project Templet for CN
 ## Usage
 * Basemodels
   ```python
-  from templet.basemodels import BaseModelMixin
-
-  class OrderInfo(BaseModelMixin):
-      xxx
-  ```
-  or
-  ```python
+  # from templet.basemodels import BaseModelMixin
   from models_ext import BaseModelMixin
 
   class OrderInfo(BaseModelMixin):
@@ -26,7 +20,8 @@ Django Project Templet for CN
 * JSON Response
   ```python
   from utils.error.errno_utils import ProfileStatusCode
-  from utils.error.response_utils import response
+  # from utils.error.response_utils import response
+  from django_response import response
 
   def response_templet(request):
       # return response(ProfileStatusCode.PROFILE_NOT_FOUND)

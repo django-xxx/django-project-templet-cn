@@ -5,6 +5,7 @@ django-detect==1.0.5
 django-json-render==1.0.0
 django-json-response==1.1.5
 django-models-ext==1.0.5
+django-response==1.0.0
 django-short-url==1.0.2
 django-uniapi==1.0.0
 django-we==1.1.2

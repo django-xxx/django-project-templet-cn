@@ -14,6 +14,13 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+# try:
+#     from func_settings import redis_connect
+#     REDIS_CACHE = redis_connect(REDIS.get('default', {}))
+# except ImportError:
+#     REDIS_CACHE = None
+from django_redis_connector import connector
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -285,13 +292,7 @@ WECHAT_USERINFO_REDIRECT_URI = '{0}/we/userinfo_redirect'.format(DOMAIN)
 WECHAT_DIRECT_BASE_REDIRECT_URI = '{0}/we/direct_base_redirect'.format(DOMAIN)
 WECHAT_DIRECT_USERINFO_REDIRECT_URI = '{0}/we/direct_userinfo_redirect'.format(DOMAIN)
 
-try:
-    # from func_settings import redis_connect
-    # REDIS_CACHE = redis_connect(REDIS.get('default', {}))
-    from django_redis_connector import connector
-    REDIS_CACHE = connector(REDIS.get('default', {}))
-except ImportError:
-    REDIS_CACHE = None
+REDIS_CACHE = connector(REDIS.get('default', {}))
 
 # LOGGER 设置
 LOGGING = {

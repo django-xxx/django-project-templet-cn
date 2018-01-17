@@ -34,7 +34,7 @@ def DJANGO_WE_USERINFO_FUNC(code, state, access_info=None, userinfo=None):
 
     return {
         settings.TOKEN_CHECK_KEY: token_check_key,
-        'vtoken': r.token(token_check_key, ex=False, buf=False),
+        'vtoken': r.token(token_check_key, ex=True, time=r.REDIS_EXPIRED_ONE_DAY, buf=False, short_uuid=True),
     }
 
 

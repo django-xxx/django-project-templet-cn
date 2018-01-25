@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'django_uniapi',
     'django_we',
     'djadmin',
+    'commands',
     'api',
 ]
 
@@ -259,7 +260,7 @@ MANAGERS = ADMINS
 # or ...mail_managers.  Make sure to include the trailing space.
 EMAIL_SUBJECT_PREFIX = u'[Templet] '
 
-# Admin Settings
+# Django-Admin Settings
 DISABLE_ACTION = False
 
 # 开发调试相关配置
@@ -292,6 +293,7 @@ WECHAT_USERINFO_REDIRECT_URI = '{0}/we/userinfo_redirect'.format(DOMAIN)
 WECHAT_DIRECT_BASE_REDIRECT_URI = '{0}/we/direct_base_redirect'.format(DOMAIN)
 WECHAT_DIRECT_USERINFO_REDIRECT_URI = '{0}/we/direct_userinfo_redirect'.format(DOMAIN)
 
+# Redis 连接
 REDIS_CACHE = connector(REDIS.get('default', {}))
 
 # LOGGER 设置

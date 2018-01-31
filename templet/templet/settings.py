@@ -263,6 +263,9 @@ EMAIL_SUBJECT_PREFIX = u'[Templet] '
 # Django-Admin Settings
 DISABLE_ACTION = False
 
+# Django-Logit Settings
+DJANGO_LOGIT_ENABLED = True
+
 # 开发调试相关配置
 if DEBUG:
     try:

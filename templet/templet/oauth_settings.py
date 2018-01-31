@@ -8,13 +8,13 @@ def DJANGO_WE_CFG_FUNC(request, state=None):
 def DJANGO_WE_QUOTE_STATE_FUNC(request, state):
     """ WeChat Quote Callback Func """
     from utils.redis.connect import r
-    return r.quote(state)
+    return r.quote(state, short_uuid=True)
 
 
 def DJANGO_WE_UNQUOTE_STATE_FUNC(request, state):
     """ WeChat UnQuote Callback Func """
     from utils.redis.connect import r
-    return r.unquote(state) or state
+    return r.unquote(state, buf=True) or state
 
 
 def DJANGO_WE_BASE_FUNC(code, state, access_info=None):

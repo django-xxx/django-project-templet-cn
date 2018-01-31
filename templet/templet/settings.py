@@ -312,6 +312,13 @@ LOGGING = {
         },
     },
     'handlers': {
+        'logit': {
+            'level': 'DEBUG',
+            'class': 'rlog.RedisListHandler',
+            'redis_client': REDIS_CACHE,
+            'key': 'django:logit:templet',
+            'formatter': 'verbose',
+        },
         'console': {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
@@ -319,6 +326,11 @@ LOGGING = {
         },
     },
     'loggers': {
+        'logit': {
+            'handlers': ['logit'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
         'console': {
             'handlers': ['console'],
             'level': 'DEBUG',

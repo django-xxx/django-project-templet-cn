@@ -98,6 +98,8 @@ WSGI_APPLICATION = 'templet.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
+    # Create Database
+    # CREATE DATABASE templet DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'templet',

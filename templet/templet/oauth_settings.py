@@ -14,6 +14,8 @@ def DJANGO_WE_QUOTE_STATE_FUNC(request, state):
 def DJANGO_WE_UNQUOTE_STATE_FUNC(request, state):
     """ WeChat UnQuote Callback Func """
     from utils.redis.connect import r
+    # If Not Buf, When Wechat Multi Request, Unquote Will Get None
+    # Then Once Should ReOAuth, Will Raise Error
     return r.unquote(state, buf=True) or state
 
 

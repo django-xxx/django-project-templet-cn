@@ -23,10 +23,17 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include('api.urls', namespace='api')),
+
     # url(r'^s/', include('django_short_url.urls', namespace='django_short_url')),
+
+    url(r'^api/', include('api.urls', namespace='api')),
     url(r'^uniapi/', include('django_uniapi.urls', namespace='uniapi')),
+
+    url(r'^w/', include('django_we.urls', namespace='shortwechat')),
     url(r'^we/', include('django_we.urls', namespace='wechat')),
+
+    # url(r'^p/', include('page.urls', namespace='shortpage')),
+    # url(r'^page/', include('page.urls', namespace='page')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

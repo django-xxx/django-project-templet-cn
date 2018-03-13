@@ -268,6 +268,9 @@ DISABLE_ACTION = False
 # Django-Logit Settings
 DJANGO_LOGIT_ENABLED = True
 
+# Django-We Settings
+DJANGO_WE_QUOTE_OR_NOT = True
+
 # 开发调试相关配置
 if DEBUG:
     try:

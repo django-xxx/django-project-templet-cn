@@ -196,6 +196,7 @@ REDIS = {
 # 微信设置
 WECHAT = {
     'JSAPI': {
+        'trade_type': 'JSAPI',  # JSAPI-网页支付、Native-原生支付、APP-APP支付、MICROPAY-刷卡支付
         'token': '5201314',
         'appID': '',
         'appsecret': '',
@@ -208,6 +209,8 @@ WECHAT = {
         }
     },
 }
+
+WECHAT_DEFAULT_CFG = 'JSAPI'
 
 # 微信唯一标识
 # Choices: 'unionid' or 'openid'
@@ -267,6 +270,8 @@ DISABLE_ACTION = False
 
 # Django-Logit Settings
 DJANGO_LOGIT_ENABLED = True
+DJANGO_LOGIT_BODY_FLAG = False
+DJANGO_LOGIT_RES_FLAG = False
 
 # Django-We Settings
 DJANGO_WE_QUOTE_OR_NOT = True
@@ -343,3 +348,10 @@ LOGGING = {
         },
     },
 }
+
+# MAX_BIGINT
+# Why Not ``sys.maxint``
+# n bit platform sys.maxint = 2 ** (n - 1) - 1
+# 64 bit 9223372036854775807, 32 bit 2147483647
+from django.db.models import BigIntegerField  # isort:skip
+MAX_BIGINT = BigIntegerField.MAX_BIGINT

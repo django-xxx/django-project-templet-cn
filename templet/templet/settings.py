@@ -289,7 +289,7 @@ except ImportError:
     pass
 
 try:
-    from oauth_settings import *
+    from django_we_callback_settings import *
 except ImportError:
     pass
 

@@ -44,3 +44,15 @@ def DJANGO_WE_SHARE_FUNC(request, state=None):
     """ WeChat Share Callback Func """
     # from django.conf import settings
     # return settings.WECHAT_OAUTH2_REDIRECT_URL
+
+
+def DJANGO_WE_MESSAGE_CALLBACK_FUNC(request, data):
+    """ WeChat Message Callback Func """
+
+
+def DJANGO_WE_COMPONENT_AUTH_FUNC(request, data):
+    """ WeChat COMPONENT Auth Func """
+
+
+def DJANGO_WE_COMPONENT_CALLBACK_FUNC(request, appid, data):
+    """ WeChat COMPONENT Callback Func """

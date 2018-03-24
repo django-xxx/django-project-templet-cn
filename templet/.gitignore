@@ -1,17 +1,15 @@
 *.db
-*.pyc
 *.swp
 *.idea
 *.sqlite3
 *.DS_Store
 *.python-version
 
-build
-
 # Compiled python modules.
 *.pyc
 
 # Setuptools distribution folder.
+/build/
 /dist/
 
 # Python egg metadata, regenerated from source files by setuptools.
@@ -24,6 +22,7 @@ build
 # Django File
 local_settings.py
 local_settings_dev.py
+
 # Django Dir
 media/
 collect_static/

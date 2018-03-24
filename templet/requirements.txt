@@ -1,11 +1,11 @@
 Django==1.11.11
 StatusCode==1.0.0
-django-admin==1.1.1
+django-admin==1.2.0
 django-detect==1.0.5
 django-json-render==1.0.0
 django-json-response==1.1.5
-django-logit==1.0.8
-django-models-ext==1.1.0
+django-logit==1.1.2
+django-models-ext==1.1.1
 django-redis-connector==1.0.1
 django-response==1.1.1
 django-rlog==1.0.7

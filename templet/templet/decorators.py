@@ -52,3 +52,24 @@ def check_sign(func=None, method='POST'):
         return foo
 
     return decorator(func)
+
+
+def check_cookie(func=None, entry=None):
+    def decorator(func):
+        @wraps(func)
+        def returned_wrapper(request, *args, **kwargs):
+            if not settings.DEBUG and not request.COOKIES.get('user_id'):
+                # 3rd OAuth
+                # return redirect(settings.WECHAT_OAUTH2_REDIRECT_URL)
+                # Current OAuth
+                redirect_url = furl(entry or settings.WECHAT_OAUTH2_REDIRECT_ENTRY).add({}).url
+                return redirect(get_oauth_redirect_url(settings.WECHAT_OAUTH2_REDIRECT_URI, 'snsapi_userinfo', redirect_url))
+            return func(request, *args, **kwargs)
+        return returned_wrapper
+
+    if not func:
+        def foo(func):
+            return decorator(func)
+        return foo
+
+    return decorator(func)

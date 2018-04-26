@@ -48,10 +48,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django_file_upload',
     # 'django_short_url',
     'django_uniapi',
+    'django_admin',
     'django_we',
-    'djadmin',
     'commands',
     'api',
 ]
@@ -200,6 +201,7 @@ WECHAT = {
         'token': '5201314',
         'appID': '',
         'appsecret': '',
+        'encodingaeskey': '',
         'mchID': '',
         'apiKey': '',
         'mch_cert': '',
@@ -220,6 +222,8 @@ WECHAT_DEFAULT_CFG = 'JSAPI'
 # views.py
 #   unique_identifier = request.POST.get(settings.WECHAT_UNIQUE_IDENTIFICATION, '')
 #   profile = Profile.objects.get(**{settings.WECHAT_UNIQUE_IDENTIFICATION: unique_identifier})
+#
+# If not bind to OpenPlat, change `WECHAT_UNIQUE_IDENTIFICATION` as `openid`
 WECHAT_UNIQUE_IDENTIFICATION = 'unionid'
 
 # Token 错误重授权设置
@@ -227,6 +231,9 @@ TOKEN_CHECK_KEY = ''
 # TOKEN_CHECK_KEY = 'user_id'
 WECHAT_OAUTH2_REDIRECT_ENTRY = ''
 WECHAT_OAUTH2_REDIRECT_URL = ''
+
+# Cookie 设置
+COOKIE_MAX_AGE = 31536000  # 单位：秒，1年：365 * 24 * 60 * 60 = 31536000
 
 # 邮件设置
 # https://docs.djangoproject.com/en/1.11/howto/error-reporting/#email-reports
@@ -266,7 +273,11 @@ MANAGERS = ADMINS
 EMAIL_SUBJECT_PREFIX = u'[Templet] '
 
 # Django-Admin Settings
-DISABLE_ACTION = False
+DJANGO_ADMIN_DISABLE_DELETE_SELECTED = False
+
+# Django-FILE-UPLOAD Settings
+DJANGO_FILE_UPLOAD_USE_YM = True
+DJANGO_FILE_UPLOAD_USE_DT = True
 
 # Django-Logit Settings
 DJANGO_LOGIT_ENABLED = True
@@ -289,6 +300,11 @@ except ImportError:
     pass
 
 try:
+    from django_file_callback_settings import *
+except ImportError:
+    pass
+
+try:
     from django_we_callback_settings import *
 except ImportError:
     pass
@@ -307,7 +323,7 @@ WECHAT_DIRECT_BASE_REDIRECT_URI = '{0}/we/direct_base_redirect'.format(DOMAIN)
 WECHAT_DIRECT_USERINFO_REDIRECT_URI = '{0}/we/direct_userinfo_redirect'.format(DOMAIN)
 
 # Redis 连接
-REDIS_CACHE = connector(REDIS.get('default', {}))
+WECHAT_REDIS_OBJ = REDIS_CACHE = connector(REDIS.get('default', {}))
 
 # LOGGER 设置
 LOGGING = {

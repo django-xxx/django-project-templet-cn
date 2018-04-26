@@ -46,13 +46,19 @@ def DJANGO_WE_SHARE_FUNC(request, state=None):
     # return settings.WECHAT_OAUTH2_REDIRECT_URL
 
 
-def DJANGO_WE_MESSAGE_CALLBACK_FUNC(request, data):
+def DJANGO_WE_MESSAGE_CALLBACK_FUNC(request, xmldict, decrypted):
     """ WeChat Message Callback Func """
 
 
-def DJANGO_WE_COMPONENT_AUTH_FUNC(request, data):
+def DJANGO_WE_COMPONENT_AUTH_FUNC(request, xmldict, decrypted):
     """ WeChat COMPONENT Auth Func """
 
 
-def DJANGO_WE_COMPONENT_CALLBACK_FUNC(request, appid, data):
+def DJANGO_WE_COMPONENT_CALLBACK_FUNC(request, appid, xmldict, decrypted):
     """ WeChat COMPONENT Callback Func """
+
+
+def DJANGO_WE_REDIS_OBJ_FUNC(request):
+    """ WeChat Redis Object Callback Func """
+    from utils.redis.connect import r
+    return r

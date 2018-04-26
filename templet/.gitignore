@@ -26,3 +26,6 @@ local_settings_dev.py
 # Django Dir
 media/
 collect_static/
+
+# Qiniu
+.qiniu_pythonsdk_hostscache.json

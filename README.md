@@ -5,7 +5,7 @@ Django Project Templet for CN
 * Basemodels
   ```python
   # from templet.basemodels import BaseModelMixin
-  from models_ext import BaseModelMixin
+  from django_models_ext import BaseModelMixin
 
   class OrderInfo(BaseModelMixin):
       xxx

@@ -19,13 +19,15 @@ class Command(CompatibilityBaseCommand):
         while True:
             # r.rpushjson('TEMPLET_CMD_KEY', {})
             k, v = r.blpopjson('TEMPLET_CMD_KEY', 60)
-            if v:
 
-                close_old_connections()
+            if not v:
+                continue
 
-                logger.info(v)
+            close_old_connections()
 
-                with transaction.atomic():
-                    pass
+            logger.info(v)
 
-                close_old_connections()
+            with transaction.atomic():
+                pass
+
+            close_old_connections()

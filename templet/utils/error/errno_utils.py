@@ -3,6 +3,11 @@
 from StatusCode import BaseStatusCode, StatusCodeField
 
 
+class ParamStatusCode(BaseStatusCode):
+    """ 4000xx 参数相关错误码 """
+    PARAM_NOT_FOUND = StatusCodeField(400000, 'Param Not Found', description=u'参数不存在')
+
+
 class ProfileStatusCode(BaseStatusCode):
     """ 4001xx 用户相关错误码 """
     PROFILE_NOT_FOUND = StatusCodeField(400101, 'Profile Not Found', description=u'用户不存在')
@@ -48,15 +53,15 @@ class SignatureStatusCode(BaseStatusCode):
 
 
 class GVCodeStatusCode(BaseStatusCode):
-    """ 4095xx 图形验证码相关错误码 """
-    GRAPHIC_VCODE_ERROR = StatusCodeField(409101, 'Graphic VCode Error', description=u'图形验证码错误')
+    """ 4092xx 图形验证码相关错误码 """
+    GRAPHIC_VCODE_ERROR = StatusCodeField(409201, 'Graphic VCode Error', description=u'图形验证码错误')
 
 
 class SVCodeStatusCode(BaseStatusCode):
-    """ 4092xx 短信验证码相关错误码 """
-    SMS_QUOTA_LIMIT = StatusCodeField(409200, 'SMS Quota Limit', description=u'短信次数超限')
-    SMS_VCODE_ERROR = StatusCodeField(409201, 'SMS VCode Error', description=u'验证码错误，请稍后重试')
-    SMS_VCODE_HAS_SEND = StatusCodeField(409202, 'SMS VCode Has Send', description=u'验证码已发送，请勿重复获取')
+    """ 4093xx 短信验证码相关错误码 """
+    SMS_QUOTA_LIMIT = StatusCodeField(409300, 'SMS Quota Limit', description=u'短信次数超限')
+    SMS_VCODE_ERROR = StatusCodeField(409301, 'SMS VCode Error', description=u'验证码错误，请稍后重试')
+    SMS_VCODE_HAS_SEND = StatusCodeField(409302, 'SMS VCode Has Send', description=u'验证码已发送，请勿重复获取')
 
 
 class InsufficientStatusCode(BaseStatusCode):

@@ -1,0 +1,68 @@
+.text-center {
+    text-align: center;
+}
+
+/*
+  文本溢出省略，元素需要设置定宽度
+  */
+/* 单行 */
+.text_ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/* 多行 */
+.a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/*
+  浮动 & 清除浮动
+ */
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: "\200B";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.clearfix:after {content:"."; display:block; height:0; visibility:hidden; clear:both; }
+.clearfix { *zoom:1; }
+
+/*
+  解决安卓微信点击图片预览问题
+  这个会让 img 标签的点击事件失效，如果想要点击图片就要给上面再写一层
+  需要长按识别二维码的时候，则再单独给该图片添加
+  ```css
+  pointer-events: auto;
+  ```
+  来恢复对应的点击事件
+  */
+img {
+    pointer-events: none;
+}
+
+.clickable {
+    pointer-events: auto;
+}
+
+/* Input 自动填充后，移除 Chrome 默认黄色 */
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px white inset !important;
+}

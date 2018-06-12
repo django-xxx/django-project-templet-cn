@@ -13,6 +13,24 @@ from utils.error.response_utils import response
 from utils.redis.connect import r
 
 
+def check_user_cookie(func=None, key=settings.COOKIE_USER_CHECK_KEY):
+    def decorator(func):
+        @wraps(func)
+        def returned_wrapper(request, *args, **kwargs):
+            user_id = request.get_signed_cookie(key, default='', salt=settings.COOKIE_SALT)
+            if not user_id:
+                return redirect(get_oauth_redirect_url(settings.WECHAT_OAUTH2_REDIRECT_URI, 'snsapi_userinfo', request.get_full_path()))
+            return func(request, *args, **kwargs)
+        return returned_wrapper
+
+    if not func:
+        def foo(func):
+            return decorator(func)
+        return foo
+
+    return decorator(func)
+
+
 def check_token(func=None, entry=None):
     def decorator(func):
         @wraps(func)

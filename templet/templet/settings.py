@@ -234,6 +234,10 @@ WECHAT_OAUTH2_REDIRECT_URL = ''
 
 # Cookie 设置
 COOKIE_MAX_AGE = 31536000  # 单位：秒，1年：365 * 24 * 60 * 60 = 31536000
+COOKIE_SALT = 'djwe'  # Salt for ``set_signed_cookie``
+# Cookie 校验设置
+COOKIE_USER_CHECK_KEY = ''
+# COOKIE_USER_CHECK_KEY = 'user_id'
 
 # 邮件设置
 # https://docs.djangoproject.com/en/1.11/howto/error-reporting/#email-reports
@@ -284,8 +288,18 @@ DJANGO_LOGIT_ENABLED = True
 DJANGO_LOGIT_BODY_FLAG = False
 DJANGO_LOGIT_RES_FLAG = False
 
+# Django-Short-URL Settings
+# Redirect url when short url not exists
+DJANGO_SHORT_URL_REDIRECT_URL = ''
+
 # Django-We Settings
 DJANGO_WE_QUOTE_OR_NOT = True
+# Enable Cookie or not
+# DJANGO_WE_BASE_REDIRECT_SET_COOKIE = False
+# DJANGO_WE_USERINFO_REDIRECT_SET_COOKIE = True
+# Cookie Config
+DJANGO_WE_COOKIE_MAX_AGE = COOKIE_MAX_AGE
+DJANGO_WE_COOKIE_SALT = COOKIE_SALT
 
 # 开发调试相关配置
 if DEBUG:
@@ -326,6 +340,7 @@ WECHAT_DIRECT_USERINFO_REDIRECT_URI = '{0}/we/direct_userinfo_redirect'.format(D
 WECHAT_REDIS_OBJ = REDIS_CACHE = connector(REDIS.get('default', {}))
 
 # LOGGER 设置
+# python manage.py rlistlog --key=django:logit:templet --filename=/tmp/templet.logit.log
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

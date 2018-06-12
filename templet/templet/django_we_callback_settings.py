@@ -23,6 +23,10 @@ def DJANGO_WE_BASE_FUNC(code, state, access_info=None):
     """ WeChat Base Redirect Callback Func """
 
 
+def DJANGO_WE_BASE_COOKIE_FUNC(code, state, access_info=None):
+    """ WeChat Base Set Cookie Redirect Callback Func """
+
+
 def DJANGO_WE_USERINFO_FUNC(code, state, access_info=None, userinfo=None):
     """ WeChat Userinfo Redirect Callback Func """
     from django.conf import settings
@@ -38,6 +42,19 @@ def DJANGO_WE_USERINFO_FUNC(code, state, access_info=None, userinfo=None):
         settings.TOKEN_CHECK_KEY: token_check_key,
         'vtoken': r.token(token_check_key, ex=True, time=r.REDIS_EXPIRED_ONE_DAY, buf=False, short_uuid=True),
     }
+
+
+def DJANGO_WE_USERINFO_COOKIE_FUNC(code, state, access_info=None, userinfo=None):
+    """ WeChat Userinfo Set Cookie Redirect Callback Func """
+    from django.conf import settings
+    from utils.user.userinfo_save import userinfo_save
+
+    # Save profile or something else
+    user = userinfo_save(userinfo)
+
+    token_check_key = getattr(user, settings.TOKEN_CHECK_KEY)
+
+    return {}, settings.TOKEN_CHECK_KEY, token_check_key
 
 
 def DJANGO_WE_SHARE_FUNC(request, state=None):

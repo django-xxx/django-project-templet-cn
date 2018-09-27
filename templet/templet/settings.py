@@ -233,8 +233,8 @@ WECHAT_OAUTH2_REDIRECT_ENTRY = ''
 WECHAT_OAUTH2_REDIRECT_URL = ''
 
 # Cookie 设置
-COOKIE_MAX_AGE = 31536000  # 单位：秒，1年：365 * 24 * 60 * 60 = 31536000
-COOKIE_SALT = 'djwe'  # Salt for ``set_signed_cookie``
+DJANGO_WE_COOKIE_MAX_AGE = COOKIE_MAX_AGE = 31536000  # 单位：秒，1年：365 * 24 * 60 * 60 = 31536000
+DJANGO_WE_COOKIE_SALT = COOKIE_SALT = 'djwe'  # Salt for ``set_signed_cookie``
 # Cookie 校验设置
 COOKIE_USER_CHECK_KEY = ''
 # COOKIE_USER_CHECK_KEY = 'user_id'
@@ -287,6 +287,10 @@ DJANGO_FILE_UPLOAD_USE_DT = True
 DJANGO_LOGIT_ENABLED = True
 DJANGO_LOGIT_BODY_FLAG = False
 DJANGO_LOGIT_RES_FLAG = False
+
+# Django-Onerror Settings
+DJANGO_ONERROR_ACCEPT_REPORT = True
+DJANGO_ONERROR_ADMIN_SITE_REGISTER = True
 
 # Django-Short-URL Settings
 # Redirect url when short url not exists

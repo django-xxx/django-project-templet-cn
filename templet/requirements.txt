@@ -1,5 +1,5 @@
 StatusCode==1.0.0
-furl==1.2.1
+furl==2.0.0
 jsonfield==2.0.2
 mysqlclient==1.3.13
 -r requirements_dj.txt

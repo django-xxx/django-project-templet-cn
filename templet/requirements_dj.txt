@@ -1,8 +1,8 @@
-Django==1.11.20
+Django==1.11.22
 django-admin==1.3.2
-django-detect==1.0.8
+django-detect==1.0.13
 django-file==1.0.3
-django-json-render==1.0.2
+django-json-render==1.0.3
 django-json-response==1.1.5
 django-logit==1.1.3
 django-models-ext==1.1.8

@@ -1,2 +1,2 @@
 pywe-oauth==1.0.7
-pywe-pay==1.0.12
+pywe-pay==1.0.13

@@ -48,5 +48,8 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # AdminSite
-admin.site.site_title = ''
-admin.site.site_header = 'My administration'
+admin.site.site_header = 'Django administration'
+admin.site.site_title = 'Django site admin'
+# Make site_url/index_title None to hidden
+admin.site.site_url = '/'
+admin.site.index_title = 'Site administration'

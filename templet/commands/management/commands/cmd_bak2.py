@@ -22,7 +22,7 @@ class Command(CompatibilityBaseCommand):
             # k, v = (kv[0], kv[1]) if kv else (None, None)
             #
             # r.rpushjson('TEMPLET_CMD_KEY', {})
-            k, v = r.blpopjson('TEMPLET_CMD_KEY', 60)
+            k, v = r.blpopjson(['TEMPLET_CMD_KEY1', 'TEMPLET_CMD_KEY2'], 60)
 
             if not v:
                 continue
@@ -31,7 +31,15 @@ class Command(CompatibilityBaseCommand):
 
             close_old_connections()
 
-            with transaction.atomic():
-                pass
+            if k == 'TEMPLET_CMD_KEY1':
+                with transaction.atomic():
+                    pass
+
+            elif k == 'TEMPLET_CMD_KEY2':
+                with transaction.atomic():
+                    pass
+
+            else:
+                continue
 
             close_old_connections()

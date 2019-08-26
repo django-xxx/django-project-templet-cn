@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+from collections import deque
 
 from django.db import transaction
 from django_six import CompatibilityBaseCommand, close_old_connections
@@ -16,13 +17,22 @@ class Command(CompatibilityBaseCommand):
 
         logger.info('Templet bak cmd is dealing')
 
+        keys = deque(['TEMPLET_CMD_KEY1', 'TEMPLET_CMD_KEY2'])
+
         while True:
             # r.rpush('TEMPLET_CMD_KEY', '')
             # kv = r.blpop('TEMPLET_CMD_KEY', 60)
             # k, v = (kv[0], kv[1]) if kv else (None, None)
             #
             # r.rpushjson('TEMPLET_CMD_KEY', {})
-            k, v = r.blpopjson(['TEMPLET_CMD_KEY1', 'TEMPLET_CMD_KEY2'], 60)
+            #
+            # Refer: https://redis.io/commands/blpop
+            # Keys are checked in the order that they are given.
+            # If not rotate keys.
+            # Some keys may not be checked at all times.
+            k, v = r.blpopjson(keys, 60)
+
+            keys.rotate(1)
 
             if not v:
                 continue

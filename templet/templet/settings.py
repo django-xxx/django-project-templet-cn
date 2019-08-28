@@ -197,7 +197,7 @@ REDIS = {
 # 微信设置
 WECHAT = {
     'JSAPI': {
-        'trade_type': 'JSAPI',  # JSAPI-网页支付、Native-原生支付、APP-APP支付、MICROPAY-刷卡支付
+        'trade_type': 'JSAPI',  # JSAPI-网页支付、NATIVE-原生支付、APP-APP支付、MICROPAY-刷卡支付
         'token': '5201314',
         'appID': '',
         'appsecret': '',

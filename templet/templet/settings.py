@@ -191,6 +191,7 @@ REDIS = {
         'USER': '',
         'PASSWORD': '',
         'db': 0,
+        'decode_responses': True,
     }
 }
 

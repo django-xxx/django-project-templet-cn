@@ -1,7 +1,7 @@
 StatusCode==1.0.0
 furl==2.0.0
 jsonfield==2.0.2
-mysqlclient==1.4.2.post1
+mysqlclient==1.4.4
 -r requirements_dj.txt
 -r requirements_pywe.txt
 -r requirements_redis.txt

@@ -310,22 +310,22 @@ DJANGO_WE_COOKIE_SALT = COOKIE_SALT
 # 开发调试相关配置
 if DEBUG:
     try:
-        from local_settings_dev import *
+        from .local_settings_dev import *
     except ImportError:
         pass
 
 try:
-    from local_settings import *
+    from .local_settings import *
 except ImportError:
     pass
 
 try:
-    from django_file_callback_settings import *
+    from .django_file_callback_settings import *
 except ImportError:
     pass
 
 try:
-    from django_we_callback_settings import *
+    from .django_we_callback_settings import *
 except ImportError:
     pass
 

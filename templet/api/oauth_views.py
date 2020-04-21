@@ -3,9 +3,9 @@
 from __future__ import division
 
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.db import transaction
 from django.shortcuts import redirect
+from django.urls import reverse
 from furl import furl
 
 from utils.redis.connect import r

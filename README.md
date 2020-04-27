@@ -1,6 +1,10 @@
 # django-project-templet-cn
 Django Project Templet for CN
 
+## Require
+* Python 3.x +
+* Django 2.x +
+
 ## Usage
 * Basemodels
   ```python

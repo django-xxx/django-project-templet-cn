@@ -1,4 +1,4 @@
-Django==2.2.12
+Django==2.2.15
 django-admin==2.0.1
 django-detect==1.0.18
 django-file==1.0.4
@@ -11,5 +11,5 @@ django-response==1.1.1
 django-rlog==1.0.7
 django-short-url==1.1.4
 django-six==1.0.4
-django-uniapi==1.0.7
+django-uniapi==1.0.10
 django-we==1.5.5

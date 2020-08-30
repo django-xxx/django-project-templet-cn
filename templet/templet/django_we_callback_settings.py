@@ -14,6 +14,7 @@ def DJANGO_WE_QUOTE_STATE_FUNC(request, state):
 def DJANGO_WE_UNQUOTE_STATE_FUNC(request, state):
     """ WeChat UnQuote Callback Func """
     from utils.redis.connect import r
+
     # If Not Buf, When Wechat Multi Request, Unquote Will Get None
     # Then Once Should ReOAuth, Will Raise Error
     return r.unquote(state, buf=True) or state
@@ -30,6 +31,7 @@ def DJANGO_WE_BASE_COOKIE_FUNC(code, state, access_info=None):
 def DJANGO_WE_USERINFO_FUNC(code, state, access_info=None, userinfo=None):
     """ WeChat Userinfo Redirect Callback Func """
     from django.conf import settings
+
     from utils.redis.connect import r
     from utils.user.userinfo_save import userinfo_save
 
@@ -47,6 +49,7 @@ def DJANGO_WE_USERINFO_FUNC(code, state, access_info=None, userinfo=None):
 def DJANGO_WE_USERINFO_COOKIE_FUNC(code, state, access_info=None, userinfo=None):
     """ WeChat Userinfo Set Cookie Redirect Callback Func """
     from django.conf import settings
+
     from utils.user.userinfo_save import userinfo_save
 
     # Save profile or something else

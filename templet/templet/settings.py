@@ -263,13 +263,22 @@ EMAIL_USE_TLS = False
 EMAIL_USE_SSL = False
 EMAIL_SSL_CERTFILE = None
 EMAIL_SSL_KEYFILE = None
-EMAIL_TIMEOUT = None
+# Default: None
+# Specifies a timeout in seconds for blocking operations like the connection attempt.
+# socket.error: [Errno 110] Connection timed out
+# 如果不设置 EMAIL_TIMEOUT，一旦 sock.connect 连接有问题 error: (110, 'Connection timed out')
+# 就会导致进程一直卡住，最终导致服务崩溃
+# EMAIL_TIMEOUT = None
+EMAIL_TIMEOUT = 3
 # Default email address to use for various automated correspondence from
 # the site managers.
 DEFAULT_FROM_EMAIL = 'error.notify <error.notify@exmail.com>'
 # People who get code error notifications.
 # In the format [('Full Name', 'email@example.com'), ('Full Name', 'anotheremail@example.com')]
-ADMINS = [('Zhang San', 'san.zhang@exmail.com'), ('Li Si', 'si.li@exmail.com')]
+# Default: [], not send code error notifications.
+# https://github.com/django/django/blob/5fcfe5361e5b8c9738b1ee4c1e9a6f293a7dda40/django/core/mail/__init__.py#L90
+# ADMINS = [('Zhang San', 'san.zhang@exmail.com'), ('Li Si', 'si.li@exmail.com')]
+ADMINS = []
 # Not-necessarily-technical managers of the site. They get broken link
 # notifications and other various emails.
 MANAGERS = ADMINS

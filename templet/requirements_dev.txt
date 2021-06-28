@@ -1,2 +1,2 @@
-isort==5.4.2
-pycodestyle==2.6.0
+isort==5.9.1
+pycodestyle==2.7.0

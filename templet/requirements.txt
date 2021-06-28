@@ -1,5 +1,5 @@
 StatusCode==1.0.0
-furl==2.1.0
+furl==2.1.2
 jsonfield==3.1.0
 mysqlclient==2.0.3
 rlog==0.3

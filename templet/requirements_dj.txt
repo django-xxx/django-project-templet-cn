@@ -1,4 +1,4 @@
-Django==2.2.19
+Django==3.2.4
 django-admin==2.0.1
 django-detect==1.0.20
 django-file==1.0.4

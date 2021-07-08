@@ -278,7 +278,7 @@ ADMINS = []
 MANAGERS = ADMINS
 # Subject-line prefix for email messages send with django.core.mail.mail_admins
 # or ...mail_managers.  Make sure to include the trailing space.
-EMAIL_SUBJECT_PREFIX = u'[Templet] '
+EMAIL_SUBJECT_PREFIX = '[Templet] '
 
 # Django-Admin Settings
 DJANGO_ADMIN_DISABLE_DELETE_SELECTED = False

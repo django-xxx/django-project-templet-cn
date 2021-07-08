@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'templet.wsgi.application'
 
 DATABASES = {
     # Create Database
-    # CREATE DATABASE templet DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+    # CREATE DATABASE templet DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'templet',
@@ -110,12 +110,6 @@ DATABASES = {
         'PORT': 3306,
         'CONN_MAX_AGE': 600,
         'OPTIONS': {
-            # Utf8mb4 for Emoji
-            #
-            # Nickname
-            #
-            # account.WechatInfo ==> nickname
-            #   ALTER TABLE account_wechatinfo MODIFY COLUMN nickname VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
             'charset': 'utf8mb4',
         },
     }

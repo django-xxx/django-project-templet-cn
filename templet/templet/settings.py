@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     # 'django_short_url',
     'django_uniapi',
     'django_admin',
+    # 'django_rlog',
     'django_we',
     'commands',
     'api',

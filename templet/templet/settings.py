@@ -396,3 +396,6 @@ LOGGING = {
 # 64 bit 9223372036854775807, 32 bit 2147483647
 from django.db.models import BigIntegerField  # isort:skip
 MAX_BIGINT = BigIntegerField.MAX_BIGINT
+
+# DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'

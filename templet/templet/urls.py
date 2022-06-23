@@ -16,18 +16,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.urls import include, re_path
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    re_path(r'^admin/', admin.site.urls),
 ]
 
 urlpatterns += [
-    url(r'^api/', include(('api.urls', 'api'), namespace='api')),
-    url(r'^uniapi/', include(('django_uniapi.urls', 'uniapi'), namespace='uniapi')),
+    re_path(r'^api/', include(('api.urls', 'api'), namespace='api')),
+    re_path(r'^uniapi/', include(('django_uniapi.urls', 'uniapi'), namespace='uniapi')),
 ]
 
 urlpatterns += [
@@ -35,13 +35,13 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    url(r'^w/', include(('django_we.urls', 'shortwechat'), namespace='shortwechat')),
-    url(r'^we/', include(('django_we.urls', 'wechat'), namespace='wechat')),
+    re_path(r'^w/', include(('django_we.urls', 'shortwechat'), namespace='shortwechat')),
+    re_path(r'^we/', include(('django_we.urls', 'wechat'), namespace='wechat')),
 ]
 
 urlpatterns += [
-    # url(r'^p/', include(('page.urls', 'shortpage'), namespace='shortpage')),
-    # url(r'^page/', include(('page.urls', 'page'), namespace='page')),
+    # re_path(r'^p/', include(('page.urls', 'shortpage'), namespace='shortpage')),
+    # re_path(r'^page/', include(('page.urls', 'page'), namespace='page')),
 ]
 
 if settings.DEBUG:

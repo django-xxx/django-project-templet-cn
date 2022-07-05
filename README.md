@@ -3,7 +3,7 @@ Django Project Templet for CN
 
 ## Require
 * Python 3.x +
-* Django 3.x +
+* Django 4.x +
 
 ## Usage
 * Basemodels
